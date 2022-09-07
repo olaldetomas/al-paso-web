@@ -17,11 +17,18 @@ const theme: DefaultTheme = {
       secondary: "#9ca3af",
     },
     background: {
-      main: "#e5e7eb",
+      main: "#F8F8F8",
+      menu: "#ffffff",
     },
+    primary: "#FEC93F",
   },
   rounded: {
-    sm: "15px",
+    sm: "10px",
+    md: "15px",
+  },
+  shadow: {
+    sm: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+    md: "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
   },
 };
 

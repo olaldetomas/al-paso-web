@@ -19,10 +19,17 @@ declare module "styled-components" {
       };
       background: {
         main: string;
+        menu: string;
       };
+      primary: string;
     };
     rounded: {
       sm: string;
+      md: string;
+    };
+    shadow: {
+      sm: string;
+      md: string;
     };
   }
 }
