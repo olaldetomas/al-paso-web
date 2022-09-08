@@ -1,10 +1,10 @@
 import Layout from "../components/layout/Layout";
 
-export default function Home() {
+export default function Menu() {
   return (
     <>
-      <Layout headerTitle={"Inicio"}>
-        <h1>Inicio</h1>
+      <Layout headerTitle={"Menu"}>
+        <h1>Menu</h1>
       </Layout>
     </>
   );

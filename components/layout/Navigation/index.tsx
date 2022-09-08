@@ -21,10 +21,20 @@ export const ItemContainer = styled.div`
   border-radius: ${({ theme }) => theme.rounded.md};
 `;
 
-export const MenuItemContainer = styled(ItemContainer)`
+interface IProps {
+  active?: boolean;
+  theme?: any;
+}
+
+export const MenuItemContainer = styled(ItemContainer)<IProps>`
   cursor: pointer;
   margin-top: 15px;
   :hover {
+    background-color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.g7};
+    box-shadow: ${({ theme }) => theme.shadow.sm};
+  }
+  &.active {
     background-color: ${({ theme }) => theme.colors.primary};
     color: ${({ theme }) => theme.colors.g7};
     box-shadow: ${({ theme }) => theme.shadow.sm};
@@ -33,6 +43,7 @@ export const MenuItemContainer = styled(ItemContainer)`
 
 export const ItemTitle = styled.h3`
   font-weight: 400;
+  font-size: 16px;
   margin-left: 20px;
   color: ${({ theme }) => theme.colors.g9};
 `;
@@ -45,7 +56,7 @@ export const ItemIcon = styled.div`
 export const Logo = styled.div`
   display: flex;
   width: 100%;
-  height: 200px;
+  height: 100px;
 `;
 
 export const LogOutIconContainer = styled(ItemContainer)`

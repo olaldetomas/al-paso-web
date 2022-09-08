@@ -7,6 +7,7 @@ import {
   ArrowLeftOnRectangleIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import {
   Container,
   ItemIcon,
@@ -17,50 +18,54 @@ import {
   MenuItemContainer,
 } from ".";
 
-const Navbar = () => {
+const Navigation = () => {
+  const router = useRouter();
+
+  const isActive = path => (router.pathname == path ? "active" : "");
+
   return (
     <Container>
       <Logo />
       <Link href="/">
-        <MenuItemContainer>
+        <MenuItemContainer className={isActive("/")}>
           <ItemIcon>
-            <HomeIcon height={25} />
+            <HomeIcon height={20} />
           </ItemIcon>
           <ItemTitle>Inicio</ItemTitle>
         </MenuItemContainer>
       </Link>
 
       <Link href="/products">
-        <MenuItemContainer>
+        <MenuItemContainer className={isActive("/products")}>
           <ItemIcon>
-            <ArchiveBoxIcon height={25} />
+            <ArchiveBoxIcon height={20} />
           </ItemIcon>
           <ItemTitle>Productos</ItemTitle>
         </MenuItemContainer>
       </Link>
 
       <Link href="/menu">
-        <MenuItemContainer>
+        <MenuItemContainer className={isActive("/menu")}>
           <ItemIcon>
-            <ClipboardDocumentListIcon height={25} />
+            <ClipboardDocumentListIcon height={20} />
           </ItemIcon>
           <ItemTitle>Menu</ItemTitle>
         </MenuItemContainer>
       </Link>
 
       <Link href="/orders">
-        <MenuItemContainer>
+        <MenuItemContainer className={isActive("/orders")}>
           <ItemIcon>
-            <FaceSmileIcon height={25} />
+            <FaceSmileIcon height={20} />
           </ItemIcon>
           <ItemTitle>Ordenes</ItemTitle>
         </MenuItemContainer>
       </Link>
 
       <Link href="/payments">
-        <MenuItemContainer>
+        <MenuItemContainer className={isActive("/payments")}>
           <ItemIcon>
-            <CreditCardIcon height={25} />
+            <CreditCardIcon height={20} />
           </ItemIcon>
           <ItemTitle>Pagos</ItemTitle>
         </MenuItemContainer>
@@ -68,11 +73,11 @@ const Navbar = () => {
 
       <LogOutIconContainer>
         <LogOutIcon>
-          <ArrowLeftOnRectangleIcon height={30} />
+          <ArrowLeftOnRectangleIcon height={25} />
         </LogOutIcon>
       </LogOutIconContainer>
     </Container>
   );
 };
 
-export default Navbar;
+export default Navigation;
