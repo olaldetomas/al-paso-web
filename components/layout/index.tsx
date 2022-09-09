@@ -9,4 +9,5 @@ export const Body = styled.div`
   flex-direction: column;
   width: 100%;
   margin-left: 40px;
+  margin-right: 40px;
 `;

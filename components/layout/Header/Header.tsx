@@ -1,15 +1,17 @@
 import { ArrowLongLeftIcon } from "@heroicons/react/24/solid";
 import { useRouter } from "next/router";
-import { ButtonGoBack, Container, HeaderTitle } from ".";
+import { Container, HeaderTitle } from ".";
+import { IconButton } from "../../../ui/buttons/IconButton";
 
 const Header = ({ title }) => {
   const router = useRouter();
 
   return (
     <Container>
-      <ButtonGoBack onClick={() => router.back()}>
-        <ArrowLongLeftIcon width={25} />
-      </ButtonGoBack>
+      <IconButton
+        icon={<ArrowLongLeftIcon width={25} />}
+        onClick={() => router.back()}
+      ></IconButton>
       <HeaderTitle>{title}</HeaderTitle>
     </Container>
   );

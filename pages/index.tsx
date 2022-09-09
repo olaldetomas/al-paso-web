@@ -1,10 +1,11 @@
-import Layout from "../components/layout/Layout";
+import Layout from "../components/Layout/Layout";
+import { AddButton } from "../ui/buttons/IconButton";
 
 export default function Home() {
   return (
     <>
       <Layout headerTitle={"Inicio"}>
-        <h1>Inicio</h1>
+        <AddButton></AddButton>
       </Layout>
     </>
   );

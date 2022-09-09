@@ -21,12 +21,7 @@ export const ItemContainer = styled.div`
   border-radius: ${({ theme }) => theme.rounded.md};
 `;
 
-interface IProps {
-  active?: boolean;
-  theme?: any;
-}
-
-export const MenuItemContainer = styled(ItemContainer)<IProps>`
+export const MenuItemContainer = styled(ItemContainer)`
   cursor: pointer;
   margin-top: 15px;
   :hover {
@@ -56,7 +51,7 @@ export const ItemIcon = styled.div`
 export const Logo = styled.div`
   display: flex;
   width: 100%;
-  height: 100px;
+  height: 85px;
 `;
 
 export const LogOutIconContainer = styled(ItemContainer)`
