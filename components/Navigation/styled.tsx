@@ -24,10 +24,13 @@ export const ItemContainer = styled.div`
 export const MenuItemContainer = styled(ItemContainer)`
   cursor: pointer;
   margin-top: 15px;
-  :hover {
+  /* :hover {
     background-color: ${({ theme }) => theme.colors.primary};
     color: ${({ theme }) => theme.colors.g7};
     box-shadow: ${({ theme }) => theme.shadow.sm};
+  } */
+  :hover {
+    background-color: ${({ theme }) => theme.colors.g1};
   }
   &.active {
     background-color: ${({ theme }) => theme.colors.primary};

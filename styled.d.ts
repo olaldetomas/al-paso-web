@@ -31,5 +31,6 @@ declare module "styled-components" {
       sm: string;
       md: string;
     };
+    fontFamily: string;
   }
 }

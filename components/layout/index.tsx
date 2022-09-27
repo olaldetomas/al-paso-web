@@ -1,13 +1,19 @@
-import styled from "styled-components";
+import React from "react";
+import Navigation from "../Navigation";
+import Header from "../Header";
+import { Body, ContainerStyle } from "./styled";
 
-export const ContainerStyle = styled.div`
-  display: flex;
-`;
+const Layout = ({ children, headerTitle }) => {
+  return (
+    <ContainerStyle>
+      <Navigation />
 
-export const Body = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin-left: 40px;
-  margin-right: 40px;
-`;
+      <Body>
+        <Header title={headerTitle} />
+        {children}
+      </Body>
+    </ContainerStyle>
+  );
+};
+
+export default Layout;

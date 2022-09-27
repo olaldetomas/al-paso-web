@@ -16,7 +16,7 @@ import {
   LogOutIcon,
   LogOutIconContainer,
   MenuItemContainer,
-} from ".";
+} from "./styled";
 
 const Navigation = () => {
   const router = useRouter();

@@ -1,7 +1,7 @@
 import { ArrowLongLeftIcon } from "@heroicons/react/24/solid";
 import { useRouter } from "next/router";
-import { Container, HeaderTitle } from ".";
-import { IconButton } from "../../../ui/buttons/IconButton";
+import { Container, HeaderTitle } from "./styled";
+import { IconButton } from "../../ui/buttons";
 
 const Header = ({ title }) => {
   const router = useRouter();
@@ -9,7 +9,7 @@ const Header = ({ title }) => {
   return (
     <Container>
       <IconButton
-        icon={<ArrowLongLeftIcon width={25} />}
+        icon={<ArrowLongLeftIcon width={20} />}
         onClick={() => router.back()}
       ></IconButton>
       <HeaderTitle>{title}</HeaderTitle>
