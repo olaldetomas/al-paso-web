@@ -82,7 +82,7 @@ const Input = props => {
   return <BaseInputContainer {...props}>{props.children}</BaseInputContainer>;
 };
 
-const PrefixInput = props => {
+const PrefixInput = () => {
   return (
     <PrefixInputContainer className="input-icon">
       <PrefixInputStyled

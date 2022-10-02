@@ -1,11 +1,34 @@
-import { DesktopMenu } from "../../ui/Menu/DesktopMenu";
-import { MobileMenu } from "../../ui/Menu/MobileMenu";
+import { DesktopMenu } from "../../ui/Menu/Desktop";
+import { MobileMenu } from "../../ui/Menu/Mobile";
+
+const menuItems = [
+  {
+    url: "/",
+    title: "Inicio",
+  },
+  {
+    url: "/products",
+    title: "Productos",
+  },
+  {
+    url: "/menu",
+    title: "Menu",
+  },
+  {
+    url: "/orders",
+    title: "Ordenes",
+  },
+  {
+    url: "/payments",
+    title: "Pagos",
+  },
+];
 
 const Navigation = ({ openMobileMenu }) => {
   return (
     <>
-      <DesktopMenu />
-      <MobileMenu openMobileMenu={openMobileMenu} />
+      <DesktopMenu items={menuItems} />
+      <MobileMenu items={menuItems} openMobileMenu={openMobileMenu} />
     </>
   );
 };
