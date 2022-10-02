@@ -1,9 +1,10 @@
 import { ArrowLongLeftIcon } from "@heroicons/react/24/solid";
 import { useRouter } from "next/router";
 import { Container, HeaderTitle } from "./styled";
-import { IconButton } from "../../ui/buttons";
+import { IconButton } from "../../ui/Buttons";
+import { BurgerButton } from "../../ui/Menu/BurgerButton";
 
-const Header = ({ title }) => {
+const Header = ({ title, onClickBurgerButton, openMobileMenu }) => {
   const router = useRouter();
 
   return (
@@ -13,6 +14,10 @@ const Header = ({ title }) => {
         onClick={() => router.back()}
       ></IconButton>
       <HeaderTitle>{title}</HeaderTitle>
+      <BurgerButton
+        openMobileMenu={openMobileMenu}
+        onClick={onClickBurgerButton}
+      />
     </Container>
   );
 };

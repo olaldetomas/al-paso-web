@@ -1,15 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import Navigation from "../Navigation";
 import Header from "../Header";
 import { Body, ContainerStyle } from "./styled";
 
 const Layout = ({ children, headerTitle }) => {
+  const [open, setOpen] = useState(false);
+
   return (
     <ContainerStyle>
-      <Navigation />
+      <Navigation openMobileMenu={open} />
 
       <Body>
-        <Header title={headerTitle} />
+        <Header
+          title={headerTitle}
+          onClickBurgerButton={() => setOpen(!open)}
+          openMobileMenu={open}
+        />
         {children}
       </Body>
     </ContainerStyle>

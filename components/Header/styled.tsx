@@ -12,5 +12,5 @@ export const HeaderTitle = styled.h1`
   color: ${({ theme }) => theme.colors.g7};
   font-size: 18px;
   font-weight: 400;
-  margin-left: 15px;
+  margin-left: 25px;
 `;

@@ -86,7 +86,7 @@ const PrefixInput = props => {
   return (
     <PrefixInputContainer className="input-icon">
       <PrefixInputStyled
-        type="text"
+        type="number"
         className="form-control"
         placeholder="0.00"
       />
