@@ -21,6 +21,10 @@ declare module "styled-components" {
         main: string;
         menu: string;
       };
+      message: {
+        error: string;
+        success: string;
+      };
       primary: string;
     };
     rounded: {

@@ -1,44 +1,61 @@
-import { useState } from "react";
-import styled from "styled-components";
+import { ButtonHTMLAttributes, ReactElement, useState } from "react";
+import { BaseButtonContainer, ButtonTitle } from "./styled";
+import cn from "classnames";
 
-interface Props {
-  primary: boolean;
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  secondary?: boolean;
 }
 
-const BaseButtonContainer = styled.button<Props>`
-  justify-content: center;
-  align-items: center;
-  box-shadow: ${({ theme }) => theme.shadow.sm};
-  border-radius: ${({ theme }) => theme.rounded.md};
-  background-color: ${({ theme, primary }) =>
-    primary ? theme.colors.primary : theme.colors.g3};
-  border: 0;
-  width: fit-content;
-  padding: 15px 16.5px;
-  cursor: pointer;
-  &.press {
-    opacity: 0.7;
-  }
-`;
+interface IconButtonProps extends ButtonProps {
+  icon?: ReactElement;
+}
 
-const IconButton = props => {
+const Button = (props: ButtonProps) => {
   const [press, setPress] = useState(false);
   const handleMouseEvent = event => {
     event.preventDefault();
     setPress(!press);
   };
+
+  const btnClass = cn("", {
+    press: press,
+    secondary: props.secondary,
+  });
+
   return (
     <BaseButtonContainer
       onMouseDown={handleMouseEvent}
       onMouseUp={handleMouseEvent}
-      className={press ? "press" : ""}
-      primary={props.primary}
+      className={btnClass}
       {...props}
     >
-      {props.icon}
-      {props.children}
+      <ButtonTitle className={btnClass}>{props.title}</ButtonTitle>
     </BaseButtonContainer>
   );
 };
 
-export { IconButton };
+const IconButton = (props: IconButtonProps) => {
+  const [press, setPress] = useState(false);
+  const handleMouseEvent = event => {
+    event.preventDefault();
+    setPress(!press);
+  };
+
+  const btnClass = cn("", {
+    press: press,
+    secondary: props.secondary,
+  });
+
+  return (
+    <BaseButtonContainer
+      onMouseDown={handleMouseEvent}
+      onMouseUp={handleMouseEvent}
+      className={btnClass}
+      {...props}
+    >
+      {props.icon}
+    </BaseButtonContainer>
+  );
+};
+
+export { Button, IconButton };

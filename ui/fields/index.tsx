@@ -1,110 +1,79 @@
-import styled from "styled-components";
-import ReactSelect from "react-select";
+import { useField } from "formik";
+import {
+  TextAreaContainer,
+  BaseInput,
+  PrefixInputContainer,
+  PrefixInputStyled,
+  PrefixText,
+  ErrorMessageContainer,
+  FieldContainer,
+  SelectContainer,
+  FieldTextAreaContainer,
+  Label,
+} from "./styled";
 
-const BaseInputContainer = styled.input`
-  border-radius: 15px;
-  height: 50px;
-  font-size: 15px;
-  font-weight: 400;
-  border: solid 1px;
-  padding-left: 20px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  border-color: ${({ theme }) => theme.colors.g4};
-  ::placeholder,
-  ::-webkit-input-placeholder {
-    color: ${({ theme }) => theme.colors.g5};
-  }
-  :focus {
-    outline: none !important;
-    border-width: 1px;
-    border-color: ${({ theme }) => theme.colors.g10};
-  }
-`;
-
-const SelectContainer = styled(ReactSelect)`
-  .react-select__control {
-    border-radius: 15px;
-    font-family: ${({ theme }) => theme.fontFamily};
-    height: 50px;
-    border: solid 1px;
-    padding-left: 10px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    color: ${({ theme }) => theme.colors.g5};
-    border-color: ${({ theme }) => theme.colors.g4};
-  }
-
-  .react-select__control--is-focused {
-    box-shadow: ${({ theme }) => theme.shadow.sm};
-    outline: none;
-    border-width: 1px;
-    border-color: ${({ theme }) => theme.colors.g10};
-  }
-`;
-
-const PrefixInputContainer = styled.div`
-  position: relative;
-  i {
-    position: absolute;
-    display: block;
-    transform: translate(0, -50%);
-    top: 50%;
-    cursor: default;
-    text-align: center;
-    font-style: normal;
-  }
-`;
-
-const PrefixInputStyled = styled(BaseInputContainer)`
-  padding-left: 40px;
-`;
-
-const PrefixText = styled.i`
-  width: 20px;
-  font-size: 18px;
-  color: ${({ theme }) => theme.colors.g5};
-  margin-left: 10px;
-`;
-
-const TextAreaContainer = styled(BaseInputContainer).attrs({
-  as: "textarea",
-})`
-  padding-top: 10px;
-  font-weight: 400;
-`;
-
-const TextArea = props => {
-  return <TextAreaContainer {...props}>{props.children}</TextAreaContainer>;
-};
-
-const Input = props => {
-  return <BaseInputContainer {...props}>{props.children}</BaseInputContainer>;
-};
-
-const PrefixInput = () => {
+const ErrorMessage = ({ meta }) => {
   return (
-    <PrefixInputContainer className="input-icon">
-      <PrefixInputStyled
-        type="number"
-        className="form-control"
-        placeholder="0.00"
-      />
-      <PrefixText>$</PrefixText>
-    </PrefixInputContainer>
+    <>
+      {meta.touched && meta.error && (
+        <ErrorMessageContainer>{meta.error}</ErrorMessageContainer>
+      )}
+    </>
   );
 };
 
-const Select = props => {
+export const Input = props => {
+  const [field, meta] = useField(props.name);
   return (
-    <SelectContainer
-      className="react-select"
-      classNamePrefix="react-select"
-      {...props}
-    >
-      {props.children}
-    </SelectContainer>
+    <FieldContainer>
+      <Label>{props.label}</Label>
+      <BaseInput {...field} {...props} />
+      <ErrorMessage meta={meta} />
+    </FieldContainer>
   );
 };
 
-export { Input, Select, TextArea, PrefixInput };
+export const TextArea = props => {
+  const [field, meta] = useField(props.name);
+  return (
+    <FieldTextAreaContainer>
+      <Label>{props.label}</Label>
+      <TextAreaContainer {...field} {...props}></TextAreaContainer>
+      <ErrorMessage meta={meta} />
+    </FieldTextAreaContainer>
+  );
+};
+
+export const PrefixInput = props => {
+  const [field, meta] = useField(props.name);
+  return (
+    <FieldContainer>
+      <Label>{props.label}</Label>
+      <PrefixInputContainer {...props} className="input-icon">
+        <PrefixInputStyled
+          type="number"
+          className="form-control"
+          placeholder="0.00"
+          {...field}
+        />
+        <PrefixText>{props.prefixText}</PrefixText>
+      </PrefixInputContainer>
+      <ErrorMessage meta={meta} />
+    </FieldContainer>
+  );
+};
+
+export const Select = props => {
+  const [field, meta] = useField(props.name);
+  return (
+    <FieldContainer>
+      <Label>{props.label}</Label>
+      <SelectContainer {...field} {...props}>
+        {props.options.map(option => {
+          return <option value={option.value}>{option.label}</option>;
+        })}
+      </SelectContainer>
+      <ErrorMessage meta={meta} />
+    </FieldContainer>
+  );
+};

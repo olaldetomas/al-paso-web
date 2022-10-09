@@ -15,6 +15,7 @@ export const ContainerMobile = styled(BaseContainer)<Props>`
   position: absolute;
   transform: ${({ open }) => (open ? "translateX(0)" : "translateX(-100%)")};
   transition: transform 0.3s ease-in-out;
+  z-index: 10;
 
   @media (max-width: 1024px) {
     display: flex;

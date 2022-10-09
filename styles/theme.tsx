@@ -20,11 +20,15 @@ const theme: DefaultTheme = {
       main: "#F8F8F8",
       menu: "#ffffff",
     },
+    message: {
+      error: "#f21e1e",
+      success: "#59ed5c",
+    },
     primary: "#FEC93F",
   },
   rounded: {
     sm: "10px",
-    md: "15px",
+    md: "14px",
   },
   shadow: {
     sm: "0 1px 2px 0 rgb(0 0 0 / 0.05)",

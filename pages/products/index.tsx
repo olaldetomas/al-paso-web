@@ -8,11 +8,7 @@ export default function Products() {
     <>
       <Layout headerTitle={"Productos"}>
         <Link href="/products/add-product">
-          <IconButton
-            onClick={() => console.log("new peoduct")}
-            icon={<PlusIcon width={20} />}
-            primary={true}
-          />
+          <IconButton icon={<PlusIcon width={20} />} />
         </Link>
       </Layout>
     </>
