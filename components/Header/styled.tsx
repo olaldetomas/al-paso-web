@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import { Title } from '../../ui/Text';
 
 export const Container = styled.header`
   display: flex;
@@ -8,9 +9,6 @@ export const Container = styled.header`
   align-items: center;
 `;
 
-export const HeaderTitle = styled.h1`
-  color: ${({ theme }) => theme.colors.g7};
-  font-size: 18px;
-  font-weight: 400;
-  margin-left: 25px;
+export const HeaderTitle = styled(Title)`
+  margin-left: 20px;
 `;

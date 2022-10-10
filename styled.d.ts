@@ -1,6 +1,6 @@
-import "styled-components";
+import 'styled-components';
 
-declare module "styled-components" {
+declare module 'styled-components' {
   export interface DefaultTheme {
     colors: {
       g1: string;
@@ -16,6 +16,7 @@ declare module "styled-components" {
       text: {
         primary: string;
         secondary: string;
+        link: string;
       };
       background: {
         main: string;

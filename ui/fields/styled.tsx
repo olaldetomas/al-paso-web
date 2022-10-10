@@ -1,10 +1,12 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const FieldContainer = styled.div`
+  width: 100%;
   height: 100px;
 `;
 
 export const FieldTextAreaContainer = styled.div`
+  width: 100%;
   height: 160px;
 `;
 
@@ -59,7 +61,7 @@ export const PrefixText = styled.i`
 `;
 
 export const TextAreaContainer = styled(BaseInput).attrs({
-  as: "textarea",
+  as: 'textarea',
 })`
   padding-top: 10px;
   font-weight: 400;
@@ -74,7 +76,7 @@ export const ErrorMessageContainer = styled.span`
   color: ${({ theme }) => theme.colors.message.error};
 `;
 
-export const SelectContainer = styled(BaseInput).attrs({ as: "select" })`
+export const SelectContainer = styled(BaseInput).attrs({ as: 'select' })`
   -webkit-appearance: none;
   box-sizing: border-box;
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 125.304 125.304"><path d="M 50 90 L -1 21 h 100" fill="%23343334"/></svg>');
