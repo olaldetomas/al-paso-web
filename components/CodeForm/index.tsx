@@ -6,7 +6,7 @@ import { ButtonStyled, FormStyled, SubtitleContainer } from './styled';
 import { initialFormValues } from './types';
 import { validationSchema } from './validationSchema';
 
-const CodeForm = ({ onSubmit }) => {
+const CodeForm = ({ emailMessage, onSubmit }) => {
   return (
     <Formik
       initialValues={initialFormValues}
@@ -27,7 +27,8 @@ const CodeForm = ({ onSubmit }) => {
         </ButtonStyled>
         <SubtitleContainer>
           <SubtitleForm>
-            Si el codigo expira o no lo encuentra debera enviar un nuevo codigo
+            Ingrese el codigo que le enviamos a{' '}
+            <SubtitleFormBold>{emailMessage}</SubtitleFormBold>
           </SubtitleForm>
         </SubtitleContainer>
       </FormStyled>
