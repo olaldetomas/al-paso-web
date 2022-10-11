@@ -1,26 +1,26 @@
-import { DesktopMenu } from "../../ui/Menu/Desktop";
-import { MobileMenu } from "../../ui/Menu/Mobile";
+import { DesktopMenu } from '../../ui/Menu/Desktop';
+import { MobileMenu } from '../../ui/Menu/Mobile';
 
 const menuItems = [
   {
-    url: "/",
-    title: "Inicio",
+    url: '/',
+    title: 'Inicio',
   },
   {
-    url: "/products",
-    title: "Productos",
+    url: '/products',
+    title: 'Productos',
   },
   {
-    url: "/menu",
-    title: "Menu",
+    url: '/menu',
+    title: 'Menu',
   },
   {
-    url: "/orders",
-    title: "Ordenes",
+    url: '/orders',
+    title: 'Ordenes',
   },
   {
-    url: "/payments",
-    title: "Pagos",
+    url: '/payments',
+    title: 'Pagos',
   },
 ];
 

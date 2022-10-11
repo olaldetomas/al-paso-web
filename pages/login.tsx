@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { CodeForm } from '../components/CodeForm';
 import { LoginForm } from '../components/LoginForm';
+import { login } from '../lib/api';
 import { FormContainer } from '../styles/sharedStyles';
 
 export default function Login() {
@@ -13,8 +14,11 @@ export default function Login() {
   };
 
   const handleCode = async code => {
-    //Send data to backend
-    console.log('Code', code);
+    const authCredentials = {
+      username: email,
+      code: code,
+    };
+    await login(authCredentials);
   };
 
   return (
