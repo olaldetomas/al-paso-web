@@ -1,14 +1,8 @@
 import useSWR from 'swr';
-import { getApi, ifSession } from './api';
+import { fetchApi } from './fetch-api';
 
-interface ApiResponse {
-  data: unknown;
-  isLoading: boolean;
-  isError: boolean;
-}
-
-export function useAuth(): ApiResponse {
-  const { data, error } = useSWR('/auth/me', ifSession(getApi));
+export function useAuth() {
+  const { data, error } = useSWR('/auth/me', fetchApi);
   return {
     data: data,
     isLoading: !error && !data,
