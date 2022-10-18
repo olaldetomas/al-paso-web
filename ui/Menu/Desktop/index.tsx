@@ -5,10 +5,10 @@ import {
   CreditCardIcon,
   FaceSmileIcon,
   ArrowLeftOnRectangleIcon,
-} from "@heroicons/react/24/outline";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { type } from "os";
+} from '@heroicons/react/24/outline';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { type } from 'os';
 import {
   ContainerDesktop,
   Logo,
@@ -17,7 +17,7 @@ import {
   ItemTitle,
   LogOutIconContainer,
   LogOutIcon,
-} from "./styled";
+} from './styled';
 
 interface Props {
   items: { url: string; title: string }[];
@@ -28,15 +28,15 @@ const DesktopMenu = ({ items }: Props) => {
 
   const getIconFromTitle = title => {
     switch (title) {
-      case "Inicio":
+      case 'Inicio':
         return <HomeIcon height={20} />;
-      case "Productos":
+      case 'Productos':
         return <ArchiveBoxIcon height={20} />;
-      case "Menu":
+      case 'Menu':
         return <ClipboardDocumentListIcon height={20} />;
-      case "Ordenes":
+      case 'Ordenes':
         return <FaceSmileIcon height={20} />;
-      case "Pagos":
+      case 'Pagos':
         return <CreditCardIcon height={20} />;
       default:
         return;
@@ -45,15 +45,15 @@ const DesktopMenu = ({ items }: Props) => {
 
   const isActive = path => {
     console.log(router.pathname);
-    return router.pathname == path ? "active" : "";
+    return router.pathname == path ? 'active' : '';
   };
 
   return (
     <ContainerDesktop>
       <Logo />
-      {items.map(item => {
+      {items.map((item, index) => {
         return (
-          <Link href={item.url}>
+          <Link key={index} href={item.url}>
             <MenuItemContainer className={isActive(item.url)}>
               <ItemIcon>{getIconFromTitle(item.title)}</ItemIcon>
               <ItemTitle>{item.title}</ItemTitle>

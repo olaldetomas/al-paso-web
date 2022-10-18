@@ -1,12 +1,12 @@
-import Link from "next/link";
-import { ContainerMobile, MenuItem } from "./styled";
+import Link from 'next/link';
+import { ContainerMobile, MenuItem } from './styled';
 
 export const MobileMenu = ({ openMobileMenu, items }) => {
   return (
     <ContainerMobile open={openMobileMenu}>
-      {items.map(item => {
+      {items.map((item, index) => {
         return (
-          <Link href={item.url}>
+          <Link key={index} href={item.url}>
             <MenuItem>{item.title}</MenuItem>
           </Link>
         );

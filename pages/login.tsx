@@ -1,32 +1,34 @@
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { CodeForm } from '../components/CodeForm';
 import { LoginForm } from '../components/LoginForm';
-import { login } from '../lib/api';
+import { getToken, sendCode } from '../lib/api';
 import { FormContainer } from '../styles/sharedStyles';
 
 export default function Login() {
   const [codeSent, setCodeSent] = useState(false);
   const [email, setEmail] = useState();
+  const router = useRouter();
 
-  const handleLogin = async values => {
-    setEmail(values.email);
+  const handleOnSendCode = async ({ email }) => {
+    setEmail(email);
     setCodeSent(true);
+    const result = await sendCode(email);
   };
 
-  const handleCode = async code => {
-    const authCredentials = {
-      username: email,
-      code: code,
-    };
-    await login(authCredentials);
+  const handleOnLogin = async ({ code }) => {
+    const token = await getToken(email, code);
+    if (token) {
+      router.push('/');
+    }
   };
 
   return (
     <FormContainer>
       {!codeSent ? (
-        <LoginForm onSubmit={handleLogin} />
+        <LoginForm onSubmit={handleOnSendCode} />
       ) : (
-        <CodeForm emailMessage={email} onSubmit={handleCode} />
+        <CodeForm emailMessage={email} onSubmit={handleOnLogin} />
       )}
     </FormContainer>
   );

@@ -1,4 +1,4 @@
-import { useField } from "formik";
+import { useField } from 'formik';
 import {
   TextAreaContainer,
   BaseInput,
@@ -10,7 +10,7 @@ import {
   SelectContainer,
   FieldTextAreaContainer,
   Label,
-} from "./styled";
+} from './styled';
 
 const ErrorMessage = ({ meta }) => {
   return (
@@ -69,8 +69,12 @@ export const Select = props => {
     <FieldContainer>
       <Label>{props.label}</Label>
       <SelectContainer {...field} {...props}>
-        {props.options.map(option => {
-          return <option value={option.value}>{option.label}</option>;
+        {props.options.map((option, index) => {
+          return (
+            <option key={index} value={option.value}>
+              {option.label}
+            </option>
+          );
         })}
       </SelectContainer>
       <ErrorMessage meta={meta} />
