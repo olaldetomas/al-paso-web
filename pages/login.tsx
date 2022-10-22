@@ -6,14 +6,14 @@ import { getToken, sendCode } from '../lib/api';
 import { FormContainer } from '../styles/sharedStyles';
 
 export default function Login() {
+  const router = useRouter();
   const [codeSent, setCodeSent] = useState(false);
   const [email, setEmail] = useState();
-  const router = useRouter();
 
   const handleOnSendCode = async ({ email }) => {
     setEmail(email);
     setCodeSent(true);
-    const result = await sendCode(email);
+    await sendCode(email);
   };
 
   const handleOnLogin = async ({ code }) => {
