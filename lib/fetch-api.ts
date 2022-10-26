@@ -19,7 +19,7 @@ export const fetchApi = async (input: any, options: any = {}) => {
   };
 
   const res = await fetch(url, completeOptions);
-  console.log(res);
+
   try {
     jsonResponse = await res.json();
   } catch (e) {

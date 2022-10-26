@@ -9,12 +9,12 @@ export interface FormValues {
   [FormFields.name]: string;
   [FormFields.category]: string;
   [FormFields.description]: string;
-  [FormFields.price]: number;
+  [FormFields.price]: number | string;
 }
 
 export const initialFormValues: FormValues = {
   [FormFields.name]: '',
   [FormFields.category]: '',
   [FormFields.description]: '',
-  [FormFields.price]: undefined,
+  [FormFields.price]: '',
 };

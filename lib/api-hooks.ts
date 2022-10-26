@@ -7,9 +7,17 @@ export function useAuth() {
     dedupingInterval: 10000,
     errorRetryCount: 1,
   });
-  console.log('data', data);
   return {
     data: data,
+    isLoading: !error && !data,
+    isError: error,
+  };
+}
+
+export function useProducts() {
+  const { data, error } = useSWR('/product', ifSession(fetchApi));
+  return {
+    products: data,
     isLoading: !error && !data,
     isError: error,
   };

@@ -2,7 +2,11 @@ import { postApi } from './fetch-api';
 import { saveToken } from './localStorage';
 
 export const saveProduct = async data => {
-  return await postApi('/product', data);
+  return await postApi('/product', {
+    body: {
+      ...data,
+    },
+  });
 };
 
 export const getToken = async (email, code) => {

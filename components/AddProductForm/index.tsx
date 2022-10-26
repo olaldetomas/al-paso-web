@@ -18,9 +18,9 @@ const AddProductForm = () => {
     <Formik
       initialValues={initialFormValues}
       validationSchema={validationSchema}
-      onSubmit={async values => {
-        console.log(values);
+      onSubmit={async (values, { resetForm }) => {
         await saveProduct(values);
+        resetForm();
       }}
     >
       <Form>

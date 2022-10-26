@@ -44,7 +44,6 @@ const DesktopMenu = ({ items }: Props) => {
   };
 
   const isActive = path => {
-    console.log(router.pathname);
     return router.pathname == path ? 'active' : '';
   };
 

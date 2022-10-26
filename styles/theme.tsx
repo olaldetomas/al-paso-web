@@ -18,7 +18,7 @@ const theme: DefaultTheme = {
       link: '#007cf8',
     },
     background: {
-      main: '#F8F8F8',
+      main: '#eeeeee',
       menu: '#ffffff',
     },
     message: {
