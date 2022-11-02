@@ -25,6 +25,10 @@ const theme: DefaultTheme = {
       error: '#f21e1e',
       success: '#59ed5c',
     },
+    uploadImage: {
+      background: '#e4e4e7',
+      border: '#52525b',
+    },
     primary: '#FEC93F',
   },
   rounded: {

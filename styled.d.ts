@@ -26,6 +26,10 @@ declare module 'styled-components' {
         error: string;
         success: string;
       };
+      uploadImage: {
+        background: string;
+        border: string;
+      };
       primary: string;
     };
     rounded: {

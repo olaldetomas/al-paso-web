@@ -2,11 +2,12 @@ import { Form, Formik } from 'formik';
 import { saveProduct } from '../../lib/api';
 import { Button } from '../../ui/Buttons';
 import { Input, PrefixInput, Select, TextArea } from '../../ui/Fields';
+import { UploadImage } from '../UploadImage';
 import { ButtonStyled } from './styled';
 import { initialFormValues } from './types';
 import { validationSchema } from './validationSchema';
 
-const options = [
+const categories = [
   { value: '', label: 'Seleccione categoria' },
   { value: '1', label: 'Bebidas' },
   { value: '2', label: 'Comidas' },
@@ -19,6 +20,7 @@ const AddProductForm = () => {
       initialValues={initialFormValues}
       validationSchema={validationSchema}
       onSubmit={async (values, { resetForm }) => {
+        console.log(values);
         await saveProduct(values);
         resetForm();
       }}
@@ -37,12 +39,15 @@ const AddProductForm = () => {
           id="price"
           name="price"
         />
-        <Select label={'Categoria'} name="category" options={options} />
+        <Select label={'Categoria'} name="category" options={categories} />
         <TextArea
           label={'Descripcion'}
           placeholder={'Descripcion del producto'}
           name="description"
         />
+
+        <UploadImage />
+
         <ButtonStyled>
           <Button type="submit" title={'Aceptar'} />
         </ButtonStyled>

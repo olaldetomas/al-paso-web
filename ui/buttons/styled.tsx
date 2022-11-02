@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 interface Props {
   secondary?: boolean;
@@ -31,7 +31,6 @@ export const ButtonTitle = styled.h3<Props>`
   padding: 2px 20px;
   margin: 0;
   color: ${({ theme }) => theme.colors.g9};
-  background-color: ${({ theme }) => theme.colors.primary};
 
   &.secondary {
     background-color: ${({ theme }) => theme.colors.g3};

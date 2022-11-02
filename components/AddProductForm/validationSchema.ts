@@ -8,4 +8,5 @@ export const validationSchema = Yup.object({
   [FormFields.category]: Yup.string().required('Requerido'),
   [FormFields.description]: Yup.string().required('Requerido'),
   [FormFields.price]: Yup.string().required('Requerido'),
+  [FormFields.image]: Yup.string(),
 });

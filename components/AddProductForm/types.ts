@@ -3,6 +3,7 @@ export enum FormFields {
   category = 'category',
   description = 'description',
   price = 'price',
+  image = 'image',
 }
 
 export interface FormValues {
@@ -10,6 +11,7 @@ export interface FormValues {
   [FormFields.category]: string;
   [FormFields.description]: string;
   [FormFields.price]: number | string;
+  [FormFields.image]: string | undefined;
 }
 
 export const initialFormValues: FormValues = {
@@ -17,4 +19,5 @@ export const initialFormValues: FormValues = {
   [FormFields.category]: '',
   [FormFields.description]: '',
   [FormFields.price]: '',
+  [FormFields.image]: '',
 };
