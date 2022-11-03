@@ -1,4 +1,4 @@
-import { useField, useFormikContext } from 'formik';
+import { useFormikContext } from 'formik';
 import { useState, useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
 import {
@@ -8,7 +8,9 @@ import {
   Icon,
   CancelIcon,
   FileName,
+  ImgPreviewContainer,
   ThumbContainer,
+  ThumbsContainer,
 } from './styled';
 
 const UploadImage = () => {
@@ -38,16 +40,22 @@ const UploadImage = () => {
     },
   });
 
+  const deleteFile = deletedfile => {
+    const newList = files.filter(file => file.name !== deletedfile.name);
+    setFiles(newList);
+  };
+
   const Thumbs = files.map(file => (
     <ThumbContainer key={file.name}>
-      <ImgPreview
-        src={file.preview}
-        onLoad={() => {
-          URL.revokeObjectURL(file.preview);
-        }}
-      />
-      <FileName>{file.name}</FileName>
-      <CancelIcon onClick={() => setFiles([])} height={30} />
+      <ImgPreviewContainer>
+        <ImgPreview
+          src={file.preview}
+          onLoad={() => {
+            URL.revokeObjectURL(file.preview);
+          }}
+        />
+      </ImgPreviewContainer>
+      <CancelIcon onClick={() => deleteFile(file)} height={25} />
     </ThumbContainer>
   ));
 
@@ -59,11 +67,11 @@ const UploadImage = () => {
   return (
     <>
       <DropZoneImgContainer {...getRootProps()}>
-        <Icon height={35} />
+        <Icon height={30} />
         <Text>Imagen de tu producto (2MB max)</Text>
         <input {...getInputProps()} name={'image'} />
       </DropZoneImgContainer>
-      {Thumbs.length > 0 && <>{Thumbs}</>}
+      <ThumbsContainer>{Thumbs.length > 0 && <>{Thumbs}</>}</ThumbsContainer>
     </>
   );
 };
