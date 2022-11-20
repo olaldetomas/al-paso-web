@@ -2,7 +2,7 @@ import { Form, Formik } from 'formik';
 import { saveProduct } from '../../lib/api';
 import { Button } from '../../ui/Buttons';
 import { Input, PrefixInput, Select, TextArea } from '../../ui/Fields';
-import { UploadImage } from '../UploadImage';
+import { ImageInput } from '../CropperModal/ImageInput';
 import { ButtonStyled } from './styled';
 import { initialFormValues } from './types';
 import { validationSchema } from './validationSchema';
@@ -46,7 +46,7 @@ const AddProductForm = () => {
           name="description"
         />
 
-        <UploadImage />
+        <ImageInput />
 
         <ButtonStyled>
           <Button type="submit" title={'Aceptar'} />

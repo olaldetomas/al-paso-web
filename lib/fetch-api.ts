@@ -1,6 +1,6 @@
 import { deleteToken, getSavedTokenSync } from './localStorage';
 
-const baseUrl = 'http://localhost:3000';
+const baseUrl = 'http://localhost:3003';
 
 export const fetchApi = async (input: any, options: any = {}) => {
   const headers = options.headers || {};
