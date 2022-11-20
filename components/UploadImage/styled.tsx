@@ -61,7 +61,6 @@ export const DropZoneImgContainer = styled.div`
 export const Text = styled.h4`
   font-weight: 300;
   font-size: 14px;
-  padding: 2px 20px;
   margin: 0;
   color: ${({ theme }) => theme.colors.g5};
 `;
