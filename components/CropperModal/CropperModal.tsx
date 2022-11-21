@@ -49,16 +49,20 @@ const CropperModal = (props: Props) => {
         type: string;
       }
     );
-    const dataUrl = canvasData.toDataURL();
-    canvasData.toBlob(blob => {
-      const croppedFile = new File([blob], fileInfo.filename, {
-        type: blob.type,
-      });
-      props.onConfirm({ croppedFile, dataUrl });
-      props.onCompleted();
-      setImage(null);
-      setCropper(null);
-    }, fileInfo.mime);
+    const imageDataURL = canvasData.toDataURL();
+    props.onConfirm(imageDataURL);
+    props.onCompleted();
+    setImage(null);
+    setCropper(null);
+    // canvasData.toBlob(blob => {
+    //   const croppedFile = new File([blob], fileInfo.filename, {
+    //     type: blob.type,
+    //   });
+    //   props.onConfirm({ croppedFile, dataUrl });
+    //   props.onCompleted();
+    //   setImage(null);
+    //   setCropper(null);
+    // }, fileInfo.mime);
   };
 
   const handleClose = (): void => {

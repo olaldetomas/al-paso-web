@@ -3,7 +3,7 @@ import { Title } from '../../ui/Text';
 
 export const Container = styled.header`
   display: flex;
-  height: 90px;
+  height: 80px;
   width: 100%;
   margin-bottom: 10px;
   align-items: center;

@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 export const ContainerStyle = styled.div`
   display: flex;
+  height: 100vh;
+  padding-bottom: 20px;
 `;
 
 export const Body = styled.div`

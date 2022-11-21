@@ -1,7 +1,8 @@
+import { useFormikContext } from 'formik';
 import { useRef, useState } from 'react';
-import { CropperModal } from '.';
+import { CropperModal } from './CropperModal';
 import {
-  DropZoneImgContainer,
+  ChooseFileContainer,
   Icon,
   ImgPreview,
   ImgPreviewContainer,
@@ -9,12 +10,11 @@ import {
 } from './styled';
 
 const ImageInput = () => {
+  const formikProps = useFormikContext();
   const [file, setFile] = useState<Object>(null);
   const [resizedImage, setResizedImage] = useState<string>(null);
-  const [viewImages, setViewImages] = useState<{ src: string; alt: string }[]>(
-    []
-  );
-  const inputRef = useRef();
+  const inputRef = useRef<HTMLInputElement>();
+
   const triggerFileSelectPopup = () => inputRef.current.click();
 
   const onFileInputChange = (e: any): void => {
@@ -26,30 +26,29 @@ const ImageInput = () => {
 
   return (
     <>
-      <DropZoneImgContainer onClick={triggerFileSelectPopup}>
-        <Icon height={30} />
-        <Text>Imagen de tu producto (2MB max)</Text>
-        <input
-          type="file"
-          accept="image/jpeg,image/png"
-          ref={inputRef}
-          onChange={onFileInputChange}
-          style={{ display: 'none' }}
-        />
-      </DropZoneImgContainer>
-
-      {resizedImage && (
+      {resizedImage ? (
         <ImgPreviewContainer>
           <ImgPreview src={resizedImage} />
         </ImgPreviewContainer>
+      ) : (
+        <ChooseFileContainer onClick={triggerFileSelectPopup}>
+          <Icon height={30} />
+          <Text>Imagen de tu producto</Text>
+          <input
+            type="file"
+            accept="image/jpeg,image/png"
+            ref={inputRef}
+            onChange={onFileInputChange}
+            style={{ display: 'none' }}
+          />
+        </ChooseFileContainer>
       )}
 
       <CropperModal
         file={file}
-        onConfirm={({ croppedFile, dataUrl }) => {
-          console.log(croppedFile);
-          console.log(dataUrl);
-          setResizedImage(window.URL.createObjectURL(croppedFile as any));
+        onConfirm={imageDataURL => {
+          formikProps.setFieldValue('image', imageDataURL);
+          setResizedImage(imageDataURL);
         }}
         onCompleted={() => setFile(null)}
       />

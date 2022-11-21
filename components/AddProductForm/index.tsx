@@ -1,9 +1,8 @@
-import { Form, Formik } from 'formik';
+import { Formik } from 'formik';
 import { saveProduct } from '../../lib/api';
-import { Button } from '../../ui/Buttons';
 import { Input, PrefixInput, Select, TextArea } from '../../ui/Fields';
+import { FormContainer, FormButton } from '../../ui/Forms';
 import { ImageInput } from '../CropperModal/ImageInput';
-import { ButtonStyled } from './styled';
 import { initialFormValues } from './types';
 import { validationSchema } from './validationSchema';
 
@@ -20,12 +19,13 @@ const AddProductForm = () => {
       initialValues={initialFormValues}
       validationSchema={validationSchema}
       onSubmit={async (values, { resetForm }) => {
+        console.log(values.image);
         console.log(values);
         await saveProduct(values);
         resetForm();
       }}
     >
-      <Form>
+      <FormContainer>
         <Input
           placeholder={'Flat white'}
           label={'Nombre'}
@@ -45,13 +45,10 @@ const AddProductForm = () => {
           placeholder={'Descripcion del producto'}
           name="description"
         />
-
         <ImageInput />
 
-        <ButtonStyled>
-          <Button type="submit" title={'Aceptar'} />
-        </ButtonStyled>
-      </Form>
+        <FormButton type="submit" title={'Aceptar'} />
+      </FormContainer>
     </Formik>
   );
 };

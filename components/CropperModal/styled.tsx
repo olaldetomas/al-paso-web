@@ -10,10 +10,8 @@ export const CancelIconContainer = styled.div`
 export const ImgPreviewContainer = styled.div`
   display: flex;
   width: fit-content;
-  padding: 5px;
   margin-bottom: 20px;
   border-radius: ${({ theme }) => theme.rounded.sm};
-  border: solid 1px ${({ theme }) => theme.colors.g4};
 `;
 
 export const ThumbContainer = styled.div`
@@ -68,7 +66,7 @@ export const CropperContainer = styled.div`
   border-radius: ${({ theme }) => theme.rounded.sm};
 `;
 
-export const DropZoneImgContainer = styled.div`
+export const ChooseFileContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
